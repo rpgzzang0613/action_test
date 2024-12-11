@@ -16,7 +16,15 @@ jobs:
           sudo add-apt-repository universe
           sudo apt install -y tesseract-ocr
           sudo apt install -y tesseract-ocr-eng
+      - name: Create .env file
+        env:
+          TEST_SECRET: ${{secrets.TEST_SECRET}}
+        run: |
+          echo "TEST_SECRET=\"$TEST_SECRET\"" >> .env
+          echo "TEST_SECRET=\"$TEST_SECRET\"" >> .env
+          echo "TEST_SECRET=\"$TEST_SECRET\"" >> .env
       - name: Print
         run: |
           python --version
           which tesseract
+          cat .env
